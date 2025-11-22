@@ -1,0 +1,47 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if using npm/yarn in the future)
+node_modules/
+
+# Build files (if using build tools)
+dist/
+build/
+*.min.js
+*.min.css
+
+# Environment variables
+.env
+.env.local
+
+# Local development files
+.local/
+
+# Node modules (but keep package files)
+node_modules/
+
+# Keep assets folder but ignore temporary files
+assets/**/*.tmp
+assets/**/*.temp
+
+# Note: The assets/ folder itself should be committed to git
+# so your uploaded files appear on GitHub Pages
+
+# Portfolio data file - COMMIT THIS to share data across browsers
+# Uncomment the line below if you DON'T want to commit portfolio-data.json
+# portfolio-data.json
+

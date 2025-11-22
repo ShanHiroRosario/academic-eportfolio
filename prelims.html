@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prelims | Academic E-Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">E-Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">About Me</a></li>
+                <li><a href="prelims.html" class="nav-link active">Prelims</a></li>
+                <li><a href="midterms.html" class="nav-link">Midterms</a></li>
+                <li><a href="finals.html" class="nav-link">Finals</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="page-header">
+            <h1><i class="fas fa-book"></i> Prelims</h1>
+            <p class="page-subtitle">Activities and reflections from the preliminary period</p>
+        </header>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-tasks"></i> Activities</h2>
+                <button class="add-item-btn" onclick="addActivity('prelims')">
+                    <i class="fas fa-plus"></i> Add Activity
+                </button>
+            </div>
+            <div class="activities-grid" id="activitiesContainer">
+                <!-- Activities will be dynamically added here -->
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-lightbulb"></i> Learning Reflection</h2>
+                <button class="edit-mode-btn" onclick="toggleEditMode()">
+                    <i class="fas fa-edit"></i> Edit Mode
+                </button>
+            </div>
+            <div class="section-content">
+                <div class="editable-content" contenteditable="false" id="learningReflection">
+                    <p>Share your experiences, insights, and learnings from the prelims period. Reflect on the challenges you faced, the concepts you mastered, and how these activities contributed to your growth as a machine learning practitioner.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Academic E-Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        loadSectionActivities('prelims');
+        loadLearningReflection('prelims');
+    </script>
+</body>
+</html>
+
