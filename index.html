@@ -29,54 +29,29 @@
         <header class="hero-section">
             <div class="hero-content">
                 <div class="profile-image-container">
-                    <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-image" id="profileImage">
-                    <button class="edit-btn" onclick="editImage('profileImage')" title="Edit Profile Picture">
-                        <i class="fas fa-edit"></i>
-                    </button>
+                    <img src="assets/profile/your-image.jpg" alt="Profile Picture" class="profile-image" id="profileImage">
                 </div>
-                <h1 class="hero-title" contenteditable="true" id="heroTitle">Your Name</h1>
-                <p class="hero-subtitle" contenteditable="true" id="heroSubtitle">Machine Learning Practitioner | Student</p>
+                <h1 class="hero-title" id="heroTitle">Your Name</h1>
+                <p class="hero-subtitle" id="heroSubtitle">Machine Learning Practitioner | Student</p>
             </div>
         </header>
 
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-user"></i> About Me</h2>
-                <button class="edit-mode-btn" onclick="toggleEditMode()">
-                    <i class="fas fa-edit"></i> Edit Mode
-                </button>
             </div>
             <div class="section-content">
-                <div class="editable-content" contenteditable="false" id="aboutMe">
+                <div class="editable-content" id="aboutMe">
                     <p>Welcome to my academic e-portfolio! I am a passionate machine learning practitioner dedicated to advancing my knowledge and skills in artificial intelligence and data science.</p>
                     <p>This portfolio showcases my academic journey, including activities, projects, and reflections from my coursework. Feel free to explore my work and learn about my experiences.</p>
                 </div>
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="section-header">
-                <h2><i class="fas fa-file-pdf"></i> Documents</h2>
-                <button class="add-item-btn" onclick="addDocument()" title="Add Document">
-                    <i class="fas fa-plus"></i> Add Document
-                </button>
-            </div>
-            <div class="section-content">
-                <p class="section-info" style="margin-bottom: 1.5rem; color: var(--text-light);">
-                    Upload PDF documents that can be linked in your About Me section. Use the format: <code style="background: var(--bg-light); padding: 0.2rem 0.4rem; border-radius: 0.25rem;">&lt;doc:document-name&gt;</code> to create clickable links.
-                </p>
-                <div id="documentsContainer">
-                    <!-- Documents will be listed here -->
-                </div>
-            </div>
-        </section>
 
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-certificate"></i> Certificates & Seminars</h2>
-                <button class="add-item-btn" onclick="addCertificate()" title="Add Certificate">
-                    <i class="fas fa-plus"></i> Add Certificate
-                </button>
             </div>
             <div class="certificates-grid" id="certificatesContainer">
                 <!-- Certificates will be dynamically added here -->
@@ -132,8 +107,8 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="portfolio-content.js"></script>
+    <script src="script-manual.js"></script>
 </body>
 </html>
 

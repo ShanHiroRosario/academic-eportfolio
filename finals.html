@@ -34,9 +34,6 @@
         <section class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-tasks"></i> Activities</h2>
-                <button class="add-item-btn" onclick="addActivity('finals')">
-                    <i class="fas fa-plus"></i> Add Activity
-                </button>
             </div>
             <div class="activities-grid" id="activitiesContainer">
                 <!-- Activities will be dynamically added here -->
@@ -45,16 +42,36 @@
 
         <section class="content-section">
             <div class="section-header">
-                <h2><i class="fas fa-lightbulb"></i> Learning Reflection</h2>
-                <button class="edit-mode-btn" onclick="toggleEditMode()">
-                    <i class="fas fa-edit"></i> Edit Mode
-                </button>
+                <h2><i class="fas fa-lightbulb"></i> Learning Reflections</h2>
             </div>
-            <div class="section-content">
-                <div class="editable-content" contenteditable="false" id="learningReflection">
-                    <p>Share your experiences, insights, and learnings from the finals period. Reflect on the challenges you faced, the concepts you mastered, and how these activities contributed to your growth as a machine learning practitioner.</p>
+            
+            <div class="reflection-item">
+                <h3><i class="fas fa-book-open"></i> Learning Reflection for the whole Final</h3>
+                <div class="editable-content" id="reflectionWholePeriod">
+                    <p>Loading...</p>
                 </div>
             </div>
+
+            <!-- <div class="reflection-item">
+                <h3><i class="fas fa-flask"></i> Learning Reflection for Laboratory Exercises</h3>
+                <div class="editable-content" id="reflectionLaboratory">
+                    <p>Loading...</p>
+                </div>
+            </div>
+
+            <div class="reflection-item">
+                <h3><i class="fas fa-file-alt"></i> Learning Reflection for Assignments</h3>
+                <div class="editable-content" id="reflectionAssignments">
+                    <p>Loading...</p>
+                </div>
+            </div>
+
+            <div class="reflection-item">
+                <h3><i class="fas fa-clipboard-check"></i> Learning Reflection for Exams</h3>
+                <div class="editable-content" id="reflectionExams">
+                    <p>Loading...</p>
+                </div>
+            </div> -->
         </section>
     </main>
 
@@ -63,16 +80,24 @@
     </footer>
 
     <!-- Image Modal -->
-    <div id="imageModal" class="modal">
+    <div id="imageModal" class="modal" onclick="if(event.target === this) closeImageModal()">
         <span class="close-modal" onclick="closeImageModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
+        <img class="modal-content" id="modalImage" onclick="event.stopPropagation()">
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal pdf-modal" onclick="if(event.target === this) closePdfModal()">
+        <span class="close-modal" onclick="closePdfModal()">&times;</span>
+        <div class="pdf-viewer-wrapper" onclick="event.stopPropagation()">
+            <iframe id="pdfViewer" class="pdf-viewer" src=""></iframe>
+        </div>
+    </div>
+
+    <script src="portfolio-content.js"></script>
+    <script src="script-manual.js"></script>
     <script>
         loadSectionActivities('finals');
-        loadLearningReflection('finals');
+        loadAllLearningReflections('finals');
     </script>
 </body>
 </html>

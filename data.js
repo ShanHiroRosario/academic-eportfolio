@@ -45,6 +45,55 @@ const PortfolioData = {
         return this.getDefaultData();
     },
 
+    // Load data from portfolio-data.json file (for GitHub Pages)
+    loadFromJsonFile: async function() {
+        try {
+            // Try to load from the repository (works on GitHub Pages)
+            const response = await fetch('./portfolio-data.json');
+            if (response.ok) {
+                const data = await response.json();
+                // Merge with localStorage (localStorage takes priority for user edits)
+                const localData = localStorage.getItem('portfolioData');
+                if (localData) {
+                    const local = JSON.parse(localData);
+                    // Merge: server data as base, localStorage as overrides
+                    const merged = this.deepMerge(data, local);
+                    localStorage.setItem('portfolioData', JSON.stringify(merged));
+                    return merged;
+                }
+                // If no localStorage, use server data
+                localStorage.setItem('portfolioData', JSON.stringify(data));
+                return data;
+            }
+        } catch (error) {
+            console.log('Could not load portfolio-data.json (this is normal if file doesn\'t exist yet)');
+        }
+        return null;
+    },
+
+    // Deep merge helper function
+    deepMerge: function(target, source) {
+        const output = { ...target };
+        if (this.isObject(target) && this.isObject(source)) {
+            Object.keys(source).forEach(key => {
+                if (this.isObject(source[key])) {
+                    if (!(key in target)) {
+                        Object.assign(output, { [key]: source[key] });
+                    } else {
+                        output[key] = this.deepMerge(target[key], source[key]);
+                    }
+                } else {
+                    Object.assign(output, { [key]: source[key] });
+                }
+            });
+        }
+        return output;
+    },
+
+    isObject: function(item) {
+        return item && typeof item === 'object' && !Array.isArray(item);
+    },
+
     // Get default/empty data structure
     getDefaultData: function() {
         return {

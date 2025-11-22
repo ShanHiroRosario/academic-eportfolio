@@ -36,32 +36,22 @@
                 <a href="#" id="backLink" class="back-link">
                     <i class="fas fa-arrow-left"></i> Back to <span id="sectionName"></span>
                 </a>
-                <div class="activity-actions">
-                    <button class="edit-mode-btn" onclick="toggleActivityEditMode()">
-                        <i class="fas fa-edit"></i> Edit Mode
-                    </button>
-                </div>
             </div>
 
             <div class="activity-detail-page">
                 <header class="activity-title-section">
-                    <h1 id="activityTitle" contenteditable="false"></h1>
+                    <h1 id="activityTitle"></h1>
                     <p class="activity-meta" id="activityMeta"></p>
                 </header>
 
                 <section class="activity-description-section">
-                    <h2><i class="fas fa-align-left"></i> Description</h2>
-                    <div class="activity-full-description" id="activityDescription" contenteditable="false"></div>
+                    <div class="activity-full-description" id="activityDescription"></div>
                 </section>
 
                 <section class="activity-images-section">
                     <div class="section-header">
                         <h2><i class="fas fa-images"></i> Supporting Images & Analysis</h2>
-                        <button class="add-item-btn" onclick="addActivityImage()">
-                            <i class="fas fa-plus"></i> Add Image
-                        </button>
                     </div>
-                    <p class="section-info">Upload images of your results (confusion matrices, model pipelines, code outputs, etc.) and provide detailed explanations for each.</p>
                     
                     <div class="images-gallery" id="activityImagesGallery">
                         <!-- Images will be dynamically loaded here -->
@@ -79,17 +69,25 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Academic E-Portfolio. All rights reserved.</p>
+        <p>&copy; 2025 Academic E-Portfolio. Made by S. R.</p>
     </footer>
 
     <!-- Image Modal (Full Screen) -->
-    <div id="imageModal" class="modal">
+    <div id="imageModal" class="modal" onclick="if(event.target === this) closeImageModal()">
         <span class="close-modal" onclick="closeImageModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
+        <img class="modal-content" id="modalImage" onclick="event.stopPropagation()">
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal pdf-modal" onclick="if(event.target === this) closePdfModal()">
+        <span class="close-modal" onclick="closePdfModal()">&times;</span>
+        <div class="pdf-viewer-wrapper" onclick="event.stopPropagation()">
+            <iframe id="pdfViewer" class="pdf-viewer" src=""></iframe>
+        </div>
+    </div>
+
+    <script src="portfolio-content.js"></script>
+    <script src="script-manual.js"></script>
     <script>
         // Load activity on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -98,108 +96,15 @@
             const activityId = urlParams.get('id');
             
             if (!section || !activityId) {
-                showError();
+                const errorState = document.getElementById('errorState');
+                const loadingState = document.getElementById('loadingState');
+                if (loadingState) loadingState.style.display = 'none';
+                if (errorState) errorState.style.display = 'block';
                 return;
             }
             
-            window.currentSection = section;
-            window.currentActivityId = activityId;
             loadActivityPage(section, activityId);
         });
-
-        function loadActivityPage(section, activityId) {
-            const activities = PortfolioData.getSectionActivities(section);
-            const activity = activities.find(act => act.id === activityId);
-            
-            const loadingState = document.getElementById('loadingState');
-            const activityContent = document.getElementById('activityContent');
-            const errorState = document.getElementById('errorState');
-            
-            if (!activity) {
-                loadingState.style.display = 'none';
-                errorState.style.display = 'block';
-                return;
-            }
-            
-            // Hide loading, show content
-            loadingState.style.display = 'none';
-            activityContent.style.display = 'block';
-            
-            // Set section name for back link
-            const sectionNames = {
-                prelims: 'Prelims',
-                midterms: 'Midterms',
-                finals: 'Finals'
-            };
-            
-            document.getElementById('sectionName').textContent = sectionNames[section] || section;
-            document.getElementById('backLink').href = `${section}.html`;
-            
-            // Populate activity details
-            document.getElementById('activityTitle').textContent = activity.title;
-            document.getElementById('activityMeta').innerHTML = `
-                <i class="fas fa-calendar"></i> ${activity.date || 'No date'} | 
-                <i class="fas fa-folder"></i> ${sectionNames[section] || section}
-            `;
-            document.getElementById('activityDescription').textContent = activity.description || 'No description provided.';
-            
-            // Load images
-            refreshActivityPage(section, activityId);
-            
-            // Set up edit mode handlers
-            setupActivityEditMode(section, activityId);
-        }
-
-        function setupActivityEditMode(section, activityId) {
-            const titleEl = document.getElementById('activityTitle');
-            const descEl = document.getElementById('activityDescription');
-            
-            titleEl.addEventListener('blur', function() {
-                PortfolioData.updateActivity(section, activityId, { title: this.textContent });
-            });
-            
-            descEl.addEventListener('blur', function() {
-                PortfolioData.updateActivity(section, activityId, { description: this.textContent });
-            });
-        }
-
-        function toggleActivityEditMode() {
-            const titleEl = document.getElementById('activityTitle');
-            const descEl = document.getElementById('activityDescription');
-            
-            const isEditable = titleEl.getAttribute('contenteditable') === 'true';
-            titleEl.setAttribute('contenteditable', !isEditable);
-            descEl.setAttribute('contenteditable', !isEditable);
-        }
-
-        function addActivityImage() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.style.display = 'none';
-            input.onchange = function(e) {
-                handleActivityImageUpload(e, window.currentSection, window.currentActivityId);
-            };
-            document.body.appendChild(input);
-            input.click();
-        }
-
-        function showError() {
-            document.getElementById('loadingState').style.display = 'none';
-            document.getElementById('activityContent').style.display = 'none';
-            document.getElementById('errorState').style.display = 'block';
-        }
-
-        // Override refreshActivityPage to work on this page
-        function refreshActivityPage(section, activityId) {
-            const activities = PortfolioData.getSectionActivities(section);
-            const activity = activities.find(act => act.id === activityId);
-            
-            const gallery = document.getElementById('activityImagesGallery');
-            if (gallery && activity) {
-                gallery.innerHTML = renderActivityImages(section, activityId, activity.images || []);
-            }
-        }
     </script>
 </body>
 </html>

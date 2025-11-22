@@ -39,6 +39,25 @@ Eportfolio2/
 └── README.md           # This file
 ```
 
+## ⚠️ IMPORTANT: Exporting Your Data to GitHub Pages
+
+**Your portfolio content is stored in browser localStorage.** To make it appear on GitHub Pages:
+
+1. **Build your portfolio locally** - Add all your content, images, certificates, activities
+2. **Export your data:**
+   - Open `EXPORT_DATA.html` in your browser (while on localhost:3000)
+   - Click "Export Portfolio Data"
+   - Save the file as `portfolio-data.json` in your project root
+3. **Commit and push:**
+   ```bash
+   git add portfolio-data.json
+   git commit -m "Add portfolio data"
+   git push
+   ```
+4. **Your content will now appear on GitHub Pages!**
+
+---
+
 ## Getting Started
 
 ### Prerequisites

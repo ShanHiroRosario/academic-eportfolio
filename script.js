@@ -105,21 +105,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Try to load data from server JSON file (if available)
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        PortfolioData.loadFromServer().then(serverData => {
-            if (serverData) {
-                // Merge server data with localStorage (server data takes precedence)
-                const localData = PortfolioData.getAll();
-                const mergedData = { ...localData, ...serverData };
-                PortfolioData.saveAll(mergedData);
-                // Reload page to show merged data
-                if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
-                    initializeHomePage();
-                }
+    // Try to load data from portfolio-data.json file (works on both localhost and GitHub Pages)
+    PortfolioData.loadFromJsonFile().then(jsonData => {
+        if (jsonData) {
+            // Data loaded from JSON file - refresh the page
+            if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+                initializeHomePage();
             }
-        });
-    }
+            // Also try loading sections if on section pages
+            const urlPath = window.location.pathname;
+            if (urlPath.includes('prelims.html')) {
+                loadSectionActivities('prelims');
+                loadLearningReflection('prelims');
+            } else if (urlPath.includes('midterms.html')) {
+                loadSectionActivities('midterms');
+                loadLearningReflection('midterms');
+            } else if (urlPath.includes('finals.html')) {
+                loadSectionActivities('finals');
+                loadLearningReflection('finals');
+            }
+        }
+    });
 
     // Initialize page based on current page
     if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
