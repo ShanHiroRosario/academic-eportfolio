@@ -89,7 +89,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "2",
                 title: "Week 2",
-                description: "Exercise 2: NLP Techniques",
+                description: "Exercise 2 - NLP Text PreProcessing. My learning reflection for this is the key foundation for preprocessing NLP tasks such as stopwords removal and lowercase values because some models like BERT pretrained from huggngface uses BERT-uncased. Special characters removal is also implemented here like the regex application, and the most important part is definitely applying tokenization so that the model can actually process the dataset that i have especially since the dataset i have is a SMS dataset full of slangs, therefore i also created a slang dictionary that standardizes the slangs such as the word 'wer r u' becomes 'where are you' for better results.",
                 date: "September 13, 2025",
                 thumbnail: "assets/activities/prelims/Activity 2.png",  // Preview image (shown on prelims page)
                 images: [
@@ -107,7 +107,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "3",
                 title: "Week 3",
-                description: "Exercise #3: Text Representation",
+                description: "Exercise #3: Text Representation. My learning reflection for this exercise is that it helped me understand what are the Bag-of-Words and TF-IDF. Basically its just transforming the dataset we have into numerical data for machine learning. I did some comparison analysis for this exercise and found out that BoW is simple and efficient however, worse because it simply represents each letters in a vector space, while TF-IDF gives better results because it captures word importance by highlighting meaningful terms and reducing the weight of common words. I realized that choosing the right text representation method depends on the dataset and the task, and that TF-IDF often provides more useful insights for classification and analysis",
                 date: "August 13, 2025",
                 thumbnail: "assets/activities/prelims/Activity 3.png",  // Preview image (shown on prelims page)
                 images: [
@@ -125,7 +125,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "4",
                 title: "Week 4",
-                description: "WW: NER Model Evaluation",
+                description: "WW: NER Model Evaluation. My reflection learning for this is that NER automatically finds named entities in text and labels them with categories such as Person, Location, Organization, Date, Product, etc. There is some libraries available for this such as such spaCy, however, if the dataset is too task specific that the free library results in low accuracy, then i can create my own named etities but this method takes too much time because there is also a need to create a gold standard to ensure that the accuracy of NER model is excellent through evaluation metrics like accuracy, precision, recall, and f1. I found out that in my exercise that the results has shown that spaCy’s default labeling regarding the context of reviews or comments that consists of fictitious and non fictitious entities proves to be unreliable with low evaluations of less than 50% accuracy in average using the en_core_web_sm model.",
                 date: "August 18, 2025",
                 thumbnail: "assets/activities/prelims/WW 1.png",  // Preview image (shown on prelims page)
                 images: [
@@ -143,7 +143,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "5",
                 title: "Week 5",
-                description: "Prelim Exam",
+                description: "Prelim Exam. My reflections is that i realized how important both preprocessing and evaluation are in NLP, because it could more or less decide the final outcome and accuracy of the model. I also understand that some entities, like names of people and organizations, were often misclassified because the model needs domain-specific data for training, as opposed to my reflections on the written work, and the exercise 1 provided me the knowledge for preprocessing steps like stopword removal and lowercasing before text representation on exercise 3 because without them, models would process noisy and repetitive data, reducing accuracy. This provided me a thorough understandign in the exam in the importance of preprocessing, representation, and model evaluation in building reliable NLP models ",
                 date: "August 25, 2025",
                 thumbnail: "assets/activities/prelims/exams.png",  // Preview image (shown on prelims page)
                 images: [
@@ -174,7 +174,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "7",
                 title: "Week 8",
-                description: "Exercise M2 - Implementing and Evaluating NLP Models",
+                description: "Exercise M2 - Implementing and Evaluating NLP Models. This exercise helped me understandthe different techniques of developing an NLP model like text categorizer, Sentiment Analysis, POS Tagging, Spam Detection and Text Summarizer. In which i built and showcased the step-by-step implementation of the Natural Language Processing Model in the field of Text Classification by exploring the domain of SMS Spam Detection and Movie Reviews for Sentiment Analysis, and Text Summarizer. while The POS Tagging is self-sourced while imitating the writing of a game review and sentiment analysis are for movie reviews. This helped me understand the different tools available for the problems that could potentially be solved because i created a model pipeline through all techniques and shows excellent results despite the low amount of dataset used like 100 records at most for movie reviews.    ",
                 date: "September 13, 2025",
                 thumbnail: "assets/activities/midterms/Activity 7 thumb.png",  // Preview image (shown on prelims page)
                 images: [
@@ -209,7 +209,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "8",
                 title: "Week 9",
-                description: "Exercise Midterm #3: Building Bert-Based QnA System",
+                description: "Exercise Midterm #3: Building Bert-Based QnA System. My learning refletcions for this is that this is actually the start where we used or leveraged pretrained BERT models from huggingface in which we leveraged the previous exercises 2 for the preprocessing steps, and used a single philippine article for creating 4 models with ground-truth notations. This helps me ensure that the models i build in the future would be based on a robust foundation of preprocessing > model selection and building > Validation, Evaluation and Comparison through experiment logs to find to most optimal performance and hyperparameters that is suitable for the problem at hand. As for the actual models i built in this activity, among the four models, despite that all of them are fine-tuned extractive QnA pretrained models, the Bert-base-cased-squad2 model performed the best on the sample data of a single news article published by the Philippine News Agency, providing 81% exact matches and the lowest amount of average inference time that directly translates to faster response time while being accurate as much as possible, which is more than Distillbert, Bert large, and RoBERT",
                 date: "October 1, 2025",
                 thumbnail: "assets/activities/midterms/Activity 8 thumb.png",  // Preview image (shown on prelims page)
                 images: [
@@ -231,7 +231,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "14",
                 title: "Week 10",
-                description: "WW-Research on LLM, Langchain, and RAG",
+                description: "WW-Research on LLM, Langchain, and RAG. My reflections for this is that RAG and LangChain are the advanced technqiues used for very smart chabots, and the most popular one is ChatGPT. This is also known as Large Language Model and Langchain is responsible for connecting the APis like performing RAG itself, meanwhile RAG solves the Hallucinations that LLMs can sometimes answer by referencing LLM to up to date and relevant external data from the external database by managing prompts better also. This helps me understand how these ChatGPT works, instead of being the consumer, i could potentially be the Developer instead, and also have the capacity to build smart models like a Documentation Codebase Q&A system by implementing RAG and a system's whole programming documentation for easier access. However, RAG is hard to implement because of limited resources at hand, which requires days of training alone.",
                 date: "October 3, 2025",
                 thumbnail: "assets/activities/midterms/Activity 9 thumb.png",  // Preview image (shown on prelims page)
                 images: [
@@ -253,7 +253,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "9",
                 title: "Week 11",
-                description: "Exams",
+                description: "Exams. My reflections in the Midterms exams is that it deepened my understanding of LLM because i remember the questions were about describing why LLM hallucinates, in which is answered by the previous activity about the WW Research, however, LLMs by themselves hallucinate because they use the technique where they predict the next most likely word based on patterns it learns during training. This is the next-token prediction, where LLMs actually just fills the gaps even if it lacks information like making up facts, and incorrect answers. This most likely happens when the dataset used for training is bad like imbalanced , noisy, or outdated informations and this is essentailyl solved using RAG because it uses real-time data to supplement the dataset used for training while also improving the prompt of the user itself.",
                 date: "October 10, 2025",
                 thumbnail: "assets/activities/midterms/exams.png",  // Preview image (shown on prelims page)
                 images: [
@@ -271,7 +271,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "10",
                 title: "Week 14",
-                description: "Exercise F1 - Final Project Proposal",
+                description: "Exercise F1 - Final Project Proposal. I learned from this exercise about how to actually research a problem prevailing in the local environment of philippines while ensuring that the previous activities and exercises that i have will be used practically, such as the Preprocessing and Text Representations from Prelims, and the knowledge of Text Classifications from midterms using pretrained BERT while ensuring that me and my groupmate designed the entire process as perfect as possible for a proposal using the standard IEEE format, specifically the Model Development and Problem Statement and Objectives while aliging to SDG standards.",
                 date: "October 24, 2025",
                 thumbnail: "assets/activities/finals/Activity 9 thumb.png",  // Preview image (shown on prelims page)
                 images: [
@@ -285,7 +285,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "11",
                 title: "Week 15",
-                description: "Exercise F2 - Model Finetuning",
+                description: "Exercise F2 - Model Finetuning. My reflections for this exercise is that after designing the development and aligning the objectives, i would personally handle the step-by-step process, starting from preparing the dataset, cleaning it, applying the usual tokenizations, i also learned the use of CUDA through GPU that aids in faster training process because its actually incredibly slow to train especially when epochs are at range 4 to 6 and thus very helpful. Fine tuning in general is using task-specific data by leveraging the pretrained models from Huggingface which atleast is what i did because the pretrained models are usually trained on a general set of data which results in misclassifications or lower accuracy than fine tuning it further. Additionally, i learned that the evaluation metrics of NLP tasks commonly uses accuracy, f1 score and model loss for evaluation and this whole exercise served as baseline model for the final project also.",
                 date: "November 4, 2025",
                 thumbnail: "assets/activities/finals/Activity 10 thumb.png",  // Preview image (shown on prelims page)
                 images: [
@@ -311,7 +311,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "12",
                 title: "Week 16",
-                description: "Exercise F3 - Automated Optimization",
+                description: "Exercise F3 - Automated Optimization. My learning reflections on this exercise is that Automated Optimization is incredibly helpful for finding the best performing hyperparameters because its automatic. Although its extremely beneficial, i needed to understand which search are better like Random Search or Grid Search. Fortunately, random search proved to be better because its only processing the hyperparameters based on the range i defined, whereas grid search uses all possible combinations of hyperparameters which is extremely slow and uses up the free resources of google colab much faster and also training time especially considering that we used RoBERTa as the best performing model for our final project and so the training time is very slow and will most likely take up days or even a week if i were to manually fine tune every hyperparameters within a transformer model, of which we used 8.",
                 date: "November 22, 2025",
                 thumbnail: "assets/activities/finals/Activity 11 thumb.png",  // Preview image (shown on prelims page)
                 images: [
@@ -341,7 +341,7 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
             {
                 id: "13",
                 title: "Week 18",
-                description: "Final Project",
+                description: "Final Project. my learning reflections for th efinal project is that i combined all the knowledge i gained, from prelims where i used preprocessing methods like Tokenization and regex application to building Bert-Based models in midterms by evaluating different NLP Models like Sentiment Analysis, QnA and so on. The most important part i learned however, is the design of the whole model development in which it encompasses how i prepare the data, actually training the model by Fine-tuning a relevant pretrained model from hugging face, then performing Random Search for our 3 models that we built for comparisons of the best performing model before testing its capabilities on a New data in which we personally labeled ground truth notations of 100 records. This helps me immensely because i already have hands-on experience on using transformer models for complex NLP tasks which serves as an invaluable skillset especially on the current times that is dominated by AI and its related field, therefore the project has affected me by equipping me with the skills to career development because i already have a strong foundation. ",
                 date: "November 9, 2025",
                 thumbnail: "assets/activities/finals/Activity 12.png",  // Preview image (shown on prelims page)
                 images: [
