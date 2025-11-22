@@ -241,11 +241,11 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
                         description: "Activity Score."
                     },
                     {
-                        url: "assets/activities/midterms/Activity 9 doc1.png",
+                        url: "assets/activities/midterms/Activity 9 Doc1.png",
                         description: "Activity Document."
                     },
                     {
-                        url: "assets/activities/midterms/Activity 9 doc2.png",
+                        url: "assets/activities/midterms/Activity 9 Doc2.png",
                         description: "Activity Document."
                     }
                 ]
