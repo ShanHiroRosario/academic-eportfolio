@@ -229,6 +229,28 @@ Note: You can preview it here: <a href="#" class="document-link" onclick="openPd
                 ]
             },
             {
+                id: "14",
+                title: "Week 10",
+                description: "WW-Research on LLM, Langchain, and RAG",
+                date: "October 3, 2025",
+                thumbnail: "assets/activities/midterms/Activity 9 thumb.png",  // Preview image (shown on prelims page)
+                images: [
+                    // Each image needs: url (file path) and description (your explanation)
+                    {
+                        url: "assets/activities/midterms/Activity 9.png",
+                        description: "Activity Score."
+                    },
+                    {
+                        url: "assets/activities/midterms/Activity 9 doc1.png",
+                        description: "Activity Document."
+                    },
+                    {
+                        url: "assets/activities/midterms/Activity 9 doc2.png",
+                        description: "Activity Document."
+                    }
+                ]
+            },
+            {
                 id: "9",
                 title: "Week 11",
                 description: "Exams",
