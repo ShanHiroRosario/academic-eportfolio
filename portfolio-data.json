@@ -1,0 +1,52 @@
+{
+  "aboutMe": {
+    "title": "Shan Hiro Rosario",
+    "subtitle": "ITE Elective Eportfolio | 4th Year Student",
+    "content": "The document below contains a reflective post based on the required readings and independent research, specifically the Exercise 1. It discusses initial learning about Machine Learning (ML), Deep Learning (DL), and Natural Language Processing (NLP), expectations for this course, and their relevance to my career goals in IT. It should be noted that you will not be downloading the document, simply opening it on this page. You can preview it here: <doc:My Expectations for ITCC508>"
+  },
+  "profileImage": "/assets/general/1763793038515-844707279-rosario--shan-hiro-t-.png",
+  "certificates": [
+    {
+      "title": "Database",
+      "date": "December 16, 2022",
+      "issuer": "CompTIA",
+      "image": "/assets/general/1763794156563-363516024-dabases-compti.png",
+      "id": "1763794156594"
+    }
+  ],
+  "sections": {
+    "prelims": {
+      "activities": [
+        {
+          "title": "Week 1",
+          "description": "Exercise 1: Machine Learning, Deep Learning, and NLP in IT",
+          "date": "July 29, 2025",
+          "images": [
+            {
+              "url": "/assets/general/1763794206525-514380556-week-1.png",
+              "description": "This activity is the creation of an E-Portfolio for the Prelims Period. Grade 90/100\n"
+            }
+          ],
+          "id": "1763794206561"
+        }
+      ],
+      "learningReflection": "Understanding Named Entity Recognition or NER builds the foundation for advanced NLP tasks because NER, at its core concept, is the ability to provide the machine an initial form of context-awareness for the sentences or dataset that will be used for sentiment analysis, text extraction or other NLP technologies for the reason at hand lies in the inability of Text-Representation Methods such as TF-IDF, Bag of words, etc cannot provide context-awareness or some semblance of it during the preprocessing stage. The preprocessing pipeline is where raw text is turned into stable, reliable inputs for models. Steps typically include cleaning (removing or normalizing punctuation/or slangs, URLs), tokenization (splitting text into tokens/words), normalization (lowercasing), and stopword removal to reduce unnecessary data that may affect the overall output of the model because it may provide undesired results because it got lost in the context of unecessary words. Each step reduces noise and helps models learn real patterns faster and more robustly. Working with a small dataset like we have done in the prelims is a good controlled environment to learn effects of each preprocessing step. It lets you inspect intermediate outputs (tokenizations, vectorization, stopword removals etc.) and measure how each change affects model behavior before scaling to larger data Bag-of-Words creates a vocabulary of tokens and represents documents as counts of those tokens, producing high-dimensional, sparse vectors. However, it must be noted that BoW counts frequencies but does not preserve word order or syntactic position — it’s a “bag” not “sequence\" that can locate positions unlike dictionary lookup. Bag of words suffers from memory problems because of its design of vectors and this is where tf-idf comes in because it improves on pure counts by down-weighting very common words (high document frequency) and up-weighting terms that are \"less-used\" across documents. That helps models that will be implemented on later topics to focus on informative features. Removing stopwords (for example common words like “the”, “is”, “and”) is often a necessary precursor for BoW/TF-IDF because those words add many features that carry little information or context within the sentence that turns it unnecessary or excess words. Excess and irrelevant features increase processing time, enlarge memory usage, and can degrade the overall model performance."
+    },
+    "midterms": {
+      "activities": [],
+      "learningReflection": "Share your experiences, insights, and learnings from the midterms period. Reflect on the challenges you faced, the concepts you mastered, and how these activities contributed to your growth as a machine learning practitioner."
+    },
+    "finals": {
+      "activities": [],
+      "learningReflection": "Share your experiences, insights, and learnings from the finals period. Reflect on the challenges you faced, the concepts you mastered, and how these activities contributed to your growth as a machine learning practitioner."
+    }
+  },
+  "documents": [
+    {
+      "name": "My Expectations for ITCC508",
+      "path": "/assets/general/1763793315034-653282992-1exercise.pdf",
+      "filename": "1exercise.pdf",
+      "id": "1763793315109"
+    }
+  ]
+}
