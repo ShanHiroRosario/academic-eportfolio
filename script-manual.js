@@ -113,7 +113,15 @@ function loadAboutMe() {
     }
     
     if (aboutMeContent && PortfolioContent.aboutMe) {
-        aboutMeContent.innerHTML = PortfolioContent.aboutMe.content;
+        // Content may already contain HTML (like document links), so use innerHTML directly
+        // But preserve line breaks for plain text sections
+        const content = PortfolioContent.aboutMe.content || '';
+        // If content already has HTML tags, use as-is, otherwise convert \n to <br>
+        if (content.includes('<') && content.includes('>')) {
+            aboutMeContent.innerHTML = content;
+        } else {
+            aboutMeContent.innerHTML = escapeHtml(content).replace(/\n/g, '<br>');
+        }
     }
 }
 
@@ -198,25 +206,30 @@ function loadAllLearningReflections(section) {
     // Load whole period reflection
     const wholePeriodEl = document.getElementById('reflectionWholePeriod');
     if (wholePeriodEl) {
-        wholePeriodEl.textContent = reflections.wholePeriod || 'No reflection added yet.';
+        const reflectionText = reflections.wholePeriod || 'No reflection added yet.';
+        // Preserve line breaks by converting \n to <br>
+        wholePeriodEl.innerHTML = escapeHtml(reflectionText).replace(/\n/g, '<br>');
     }
     
-    // Load laboratory exercises reflection
+    // Load laboratory exercises reflection (commented out in HTML, but keep code for future use)
     const laboratoryEl = document.getElementById('reflectionLaboratory');
     if (laboratoryEl) {
-        laboratoryEl.textContent = reflections.laboratoryExercises || 'No reflection added yet.';
+        const reflectionText = reflections.laboratoryExercises || 'No reflection added yet.';
+        laboratoryEl.innerHTML = escapeHtml(reflectionText).replace(/\n/g, '<br>');
     }
     
-    // Load assignments reflection
+    // Load assignments reflection (commented out in HTML, but keep code for future use)
     const assignmentsEl = document.getElementById('reflectionAssignments');
     if (assignmentsEl) {
-        assignmentsEl.textContent = reflections.assignments || 'No reflection added yet.';
+        const reflectionText = reflections.assignments || 'No reflection added yet.';
+        assignmentsEl.innerHTML = escapeHtml(reflectionText).replace(/\n/g, '<br>');
     }
     
-    // Load exams reflection
+    // Load exams reflection (commented out in HTML, but keep code for future use)
     const examsEl = document.getElementById('reflectionExams');
     if (examsEl) {
-        examsEl.textContent = reflections.exams || 'No reflection added yet.';
+        const reflectionText = reflections.exams || 'No reflection added yet.';
+        examsEl.innerHTML = escapeHtml(reflectionText).replace(/\n/g, '<br>');
     }
 }
 
